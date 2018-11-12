@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Preso: Presentation Platform</title>
+  <link type="text/css" rel="stylesheet" href="/static/dir.css">
+  <script src="/static/dir.js"></script>
+  <script>
+    // Initialize Google Analytics tracking code on production site only.
+    if (window["location"] && window["location"]["hostname"] == "talks.golang.org") {
+      var _gaq = _gaq || [];
+      _gaq.push(["_setAccount", "UA-11222381-6"]);
+      _gaq.push(["b._setAccount", "UA-49880327-6"]);
+      window.trackPageview = function() {
+        _gaq.push(["_trackPageview", location.pathname+location.hash]);
+        _gaq.push(["b._trackPageview", location.pathname+location.hash]);
+      };
+      window.trackPageview();
+      window.trackEvent = function(category, action, opt_label, opt_value, opt_noninteraction) {
+        _gaq.push(["_trackEvent", category, action, opt_label, opt_value, opt_noninteraction]);
+        _gaq.push(["b._trackEvent", category, action, opt_label, opt_value, opt_noninteraction]);
+      };
+    }
+  </script>
+</head>
+<body>
+
+<div id="topbar"><div class="container">
+
+<div id="menu">
+<a href="https://rupakganguly.com">Website</a>
+<a href="https://twitter.com/rupakg">Twitter</a>
+<a href="https://github.com/rupakg">Github</a>
+<a href="mailto:rupakg@gmail.com">Email</a>
+
+</div>
+<div id="heading">
+  <a href="/">Preso Presentation Platform</a>
+</div>
+</form>
+
+</div></div>
+
+<div id="page">
+  
+<h1>Welcome</h1>
+
+Welcome to <b>Preso</b> - a platform for creating and sharing presentations, articles of interest and other resources. 
+This is an easy to access web-based presentations and articles platform.</br></br>
+
+The presentations are driven by <b>Present</b> tooling built into the Golang Cmd tools. 
+The presentations and articles are constructed using what is essentially a Markdown-like file. 
+Super simple and very fast to get a presentation or article written up. 
+Basically, a presentation mechanism <i>built by engineers, for engineers</i>!</br></br>
+
+<h1>Talks / Articles / References</h1>
+
+  {{with .Path}}<h2>{{.}}</h2>{{end}}
+
+  {{with .Articles}}
+  <h4>Articles</h4>
+  <dl>
+  {{range .}}
+  <dd>{{.Name}}: <a href="/{{.Path}}">{{.Title}}</a></dd>
+  {{end}}
+  </dl>
+  {{end}}
+
+  {{with .Slides}}
+  <h4>Presentations</h4>
+  <dl>
+  {{range .}}
+  <dd>{{.Name}}: <a href="/{{.Path}}">{{.Title}}</a></dd>
+  {{end}}
+  </dl>
+  {{end}}
+
+  {{with .Other}}
+  <h4>Files</h4>
+  <dl>
+  {{range .}}
+  <dd><a href="/{{.Path}}">{{.Name}}</a></dd>
+  {{end}}
+  </dl>
+  {{end}}
+
+  {{with .Dirs}}
+  <h4>Topics</h4>
+  <dl>
+  {{range .}}
+  <dd><a href="/{{.Path}}">{{.Name}}</a></dd>
+  {{end}}
+  </dl>
+  {{end}}
+
+</div>
+
+<div id="footer">
+<hr/>
+All content published on this site is the sole property of the owner and should not be shared or otherwise distributed publicly without permission. &copy Rupak Ganguly 2018
+</div>
+
+<script>
+  (function() {
+    // Load Google Analytics tracking code on production site only.
+    if (window["location"] && window["location"]["hostname"] == "talks.golang.org") {
+      var ga = document.createElement("script"); ga.type = "text/javascript"; ga.async = true;
+      ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
+      var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ga, s);
+    }
+  })();
+</script>
+</body>
+</html>
