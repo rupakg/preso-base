@@ -112,7 +112,8 @@ div#heading a {
 }
 
 div#topbar {
-	background: #0000ff;
+	/* background:#0000ff; */
+	background: #eea553;
 	height: 64px;
 }
 
